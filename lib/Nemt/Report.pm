@@ -673,5 +673,5 @@ See callback example in the EXAMPLES section.
 =head1 AUTHOR
 
 David K. Sundsskard (david@sundsskard.com)
-
+Roi a Torkilsheyggi
 =cut
