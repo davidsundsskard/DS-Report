@@ -1,6 +1,5 @@
-Revision history for Perl extension Nemt::Report.
+Revision history for Perl extension DS::Report.
 
 0.1  Tue Jan 24 09:48:19 2012
-	- original version; created by h2xs 1.23 with options
-		-AX Nemt::Report
+	- original version; 
 

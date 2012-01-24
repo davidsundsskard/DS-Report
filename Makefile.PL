@@ -3,8 +3,8 @@ use inc::Module::Install;
 perl_version '5.006';
 license 'gpl';
 
-name     'Nemt-Report';
-all_from 'lib/Nemt/Report.pm';
+name     'DS-Report';
+all_from 'lib/DS/Report.pm';
 
 include 'Module::AutoInstall';
 

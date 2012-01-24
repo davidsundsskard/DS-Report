@@ -2,5 +2,5 @@ Changes
 Makefile.PL
 MANIFEST
 README
-t/Nemt-Report.t
-lib/Nemt/Report.pm
+t/DS-Report.t
+lib/DS/Report.pm

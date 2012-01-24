@@ -1,4 +1,4 @@
-package Nemt::Report;
+package DS::Report;
 
 use strict;
 use warnings;
@@ -441,9 +441,9 @@ __END__
 
 =head1 SYNOPSIS
 
-    use Nemt::Report;
+    use DS::Report;
 
-my $report = Nemt::Report->new(
+my $report = DS::Report->new(
                path            => '/tmp/',
                filename        => 'test.xls',
                separator       => '|',
@@ -546,12 +546,12 @@ See callback example in the EXAMPLES section.
   use warnings;
 
   use DBI;
-  use Nemt::Report;
+  use DS::Report;
   # Prepare and execute statement, and pass handle to Report->new
   my $dbh  = DBI->connect("dbi:Pg:dbname=preprod;host=databasehost",'username','password') or die DBI->errstr;
   my $sth = $dbh->prepare(qq[select id,status,message from orderflow limit 10 ]);
   $sth->execute();
-  my $report = Nemt::Report->new(
+  my $report = DS::Report->new(
                 separator       => '|',
                 path            => '/home/nas/data/testreport/',
                 filename        => 'test.csv',
@@ -572,7 +572,7 @@ See callback example in the EXAMPLES section.
   use strict;
   use warnings;
   use DBI;
-  use Nemt::Report;
+  use DS::Report;
 
   # Prepare and execute statement, and pass handle to Report->new
   my $dbh = DBI->connect('dbi:Oracle:iaadan.world', 'username', 'password') or die DBI->errstr;
@@ -591,7 +591,7 @@ See callback example in the EXAMPLES section.
 
   $sth->execute();
 
-  my $report = Nemt::Report->new(
+  my $report = DS::Report->new(
                 separator       => '|',
                 path            => '/server/test/httpd/htdocs/CouponStatus/',
                 filename        => 'index.html',
@@ -608,7 +608,7 @@ See callback example in the EXAMPLES section.
   use warnings;
 
   use DBI;
-  use Nemt::Report;
+  use DS::Report;
 
   my $dbh  = DBI->connect("dbi:Pg:dbname=preprod;host=host.net",'user','pass') or die DBI->errstr;
   my $sth = $dbh->prepare(qq[SELECT salesman_id,order_id,coupon_serial FROM pb_express_scans pe
@@ -625,7 +625,7 @@ See callback example in the EXAMPLES section.
   my $sth_ora = $dbh_ora->prepare(qq[SELECT PROCESSEDDATE,TIFFLINK FROM COUPONDATA where ORDERFLOWID = ? ]);
 
   my @recipients = [ 'ds@domain.tld', 'ds@domain.tld' ];
-  my $reportTool = Nemt::Report->new(
+  my $reportTool = DS::Report->new(
                                     path            => '/home/ds/work/tmp/',
                                     filename        => 'test.xls',
                                     separator       => "|",
