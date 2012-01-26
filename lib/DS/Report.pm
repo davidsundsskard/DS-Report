@@ -198,13 +198,40 @@ CSS
                                             }),
                              -style => {
                                         -code => $newStyle
-                                        }
+                                        },
+                             -script => [
+                                          { 
+                                           -type => 'text/javascript',
+                                           -src => 'https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'
+                                          },
+                                          { 
+                                           -type => 'text/javascript',
+                                           -src => 'js/jquery.tablesorter.js'
+                                          }
+                                         ]
                              );
-
-    print OUTFILE table({-border=>'0'},
-                        caption($self->{caption}),
-                        TR([th(\@{$column_names}),@rows])
-                        );
+    my $now = time();
+    print OUTFILE '<table border="0" id="'.$now.'">';
+    print OUTFILE '<caption>' . $self->{caption} . '</caption>';
+    print OUTFILE '<thead><tr>';
+    foreach my $th (@{$column_names}) {
+	print OUTFILE '<th>'.$th.'</th>';
+    }
+    print OUTFILE '</tr></thead>';
+    print OUTFILE '<tbody>';
+    foreach my $row (@rows) {
+	print OUTFILE '<tr>';
+	print OUTFILE $row;
+	print OUTFILE '</tr>';
+    }
+    print OUTFILE '</tbody>';
+    print OUTFILE '<script type="text/javascript">';
+    print OUTFILE '$(document).ready(function()';
+    print OUTFILE '{'; 
+    print OUTFILE '$("#'.$now.'").tablesorter();';
+    print OUTFILE '}'; 
+    print OUTFILE ');';
+    print OUTFILE '</script>';
     print OUTFILE end_html;
 
     close(OUTFILE);
